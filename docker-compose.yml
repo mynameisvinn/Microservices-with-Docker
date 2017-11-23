@@ -2,10 +2,10 @@ web:
   build: .  # use web image in current directory
   command: python -u app.py
   ports:
-    - "5001:5000"  # host's 5001 port to container's 5000 port
+    - "5000:5000"
   volumes:
     - .:/todo  # sync host's current directory with web's todo folder
   links:
-    - db  # compose will link web service to db services
+    - db  # compose links web to db
 db:
   image: mongo:3.0.2  # separate dockerfile
